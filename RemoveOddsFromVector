@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+#include <tuple>
+#include <random>
+#include <algorithm>
+#include <string>
+#include <cctype>
+#include <iterator>
+int randNum()
+{
+	std::random_device rseed;
+	std::mt19937 mt(rseed());
+	std::uniform_int_distribution <int> dist(0, 99);
+	return(dist(mt));
+}
+
+
+int main()
+{
+	//std::vector<int> vecArr(20, 0);
+	std::vector<int> vecArr = { 9, 11, 14, 18, 20, 22, 27, 29, 30, 38, 39, 51, 51, 56, 63, 65, 74, 74, 74, 96 };
+	/*std::generate(std::begin(vecArr), std::end(vecArr), randNum);
+
+	std::cout << "Unsorted: \n";
+	for(const auto& z: vecArr)
+		std::cout << z << " ";
+
+	std::cout << std::endl;
+	std::sort(std::begin(vecArr), std::end(vecArr));
+
+	std::cout << "Sorted:\n";
+	for (const auto& v : vecArr)
+	{
+		std::cout << v << " ";
+	}*/
+
+	std::vector<int> v = { 1,2,3,4,5,6,7,8,9 }; 
+	std::remove_if(std::begin(v), std::end(v), [](auto& e) { return e % 2; }); 
+	//std::cout << v;
+	//{2, 4, 6, 8, 5, 6, 7, 8, 9}
+	
+	for (const auto& a : v)
+		std::cout << a << " ";
+
+	std::cout << std::endl;
+
+
+	/*std::string str1 = "Text with some   spaces";
+	str1.erase(std::remove(str1.begin(), str1.end(), ' '),
+		str1.end());
+	std::cout << str1 << '\n';*/
+
+	std::vector<int> vec = { 1,2,3,4,5,6,7,8,9 }; 
+	vec.erase( remove_if( std::begin(vec), std::end(vec), [](auto& e) { return e % 2; }), std::end(vec));
+	
+	for (auto c : vec)
+		std::cout << c << " ";
+
+	//std::cout << vec;
+	//{2, 4, 6, 8}
+	
+
+
+
+
+	std::cout << std::endl;
+	
+	
+
+
+
+
+
+	system("pause");
+	return 0;
+
+}
