@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-
+//This is mostly just test how to implement user input without getting an error
 
 class Calculator
 {
